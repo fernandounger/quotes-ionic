@@ -1,0 +1,7 @@
+{
+  "name": "MyQuotes",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
