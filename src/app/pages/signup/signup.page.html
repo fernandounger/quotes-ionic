@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>signup</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="signupForm" (ngSubmit)="signup()">
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <div *ngIf="signupForm.get('name').errors && signupForm.get('name').touched">
+      <p *ngIf="signupForm.get('name').errors.required" class="error-message">
+        O nome é obrigatório
+      </p>
+      <p *ngIf="signupForm.get('name').errors.minlength" class="error-message">
+        O nome deve ter no mínimo 6 caracteres
+      </p>
+      <p *ngIf="signupForm.get('name').errors.maxlength" class="error-message">
+        O nome deve ter no máximo 50 caracteres
+      </p>
+      <p *ngIf="signupForm.get('name').errors.pattern" class="error-message">
+        O nome deve conter somente caracteres alfabéticos
+      </p>
+    </div>
+  
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <div *ngIf="signupForm.get('email').errors && signupForm.get('email').touched">
+      <p *ngIf="signupForm.get('email').errors.required" class="error-message">
+        O email é obrigatório
+      </p>
+      <p *ngIf="signupForm.get('email').errors.email" class="error-message">
+        O email é inválido
+      </p>
+    </div>
+  
+    <ion-item>
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <div *ngIf="signupForm.get('password').errors && signupForm.get('password').touched">
+      <p *ngIf="signupForm.get('password').errors.required" class="error-message">
+        A senha é obrigatória
+      </p>
+      <p *ngIf="signupForm.get('password').errors.minlength" class="error-message">
+        A senha deve ter no mínimo 6 caracteres
+      </p>
+      <p *ngIf="signupForm.get('password').errors.maxlength" class="error-message">
+        A senha deve ter no máximo 10 caracteres
+      </p>
+   </form>  
+</ion-content>
