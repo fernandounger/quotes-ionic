@@ -11,7 +11,7 @@ import { QuoteService } from '../../service/quote.service';
 })
 export class QuoteComponent implements OnInit {
 
-  quote: string;  
+  quote: any;  
   quoteText?: string;
   quoteAuthor?: string;
 
@@ -19,6 +19,7 @@ export class QuoteComponent implements OnInit {
 
   ngOnInit() {
     this.quoteService.getRandomQuote().subscribe(data => {
+      this.quote = data.quote;
       this.quoteText = data.quote.quoteText;
       this.quoteAuthor = data.quote.quoteAuthor;
     });

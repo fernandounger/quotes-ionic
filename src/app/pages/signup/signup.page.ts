@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-// import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 
 @Component({
@@ -10,14 +10,13 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class SignupPage implements OnInit {
 
-  // signupForm: FormGroup;
+  signupForm: FormGroup;
   name!: string;
   email!: string;
   password!: string;
   cpf!: string;
 
-  constructor() {
-    (private fireAuth: AngularFireAuth)
+  constructor(private fireAuth: AngularFireAuth) {
     this.signupForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*')]),
       email: new FormControl('', [Validators.required, Validators.email]),
